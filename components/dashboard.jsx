@@ -4,6 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Plus, MoreHorizontal } from "lucide-react"
+import Link from "next/link"
 
 export function Dashboard() {
   const instances = [
@@ -111,9 +112,11 @@ export function Dashboard() {
                     <td className="py-4 px-4 text-gray-600">{instance.createdAt}</td>
                     <td className="py-4 px-4 text-right">
                       <div className="flex items-center justify-end space-x-2">
-                        <Button variant="ghost" size="sm" className="text-green-600 hover:text-green-700">
-                          Manage
-                        </Button>
+                        <Link href={`/instance/${instance.name.toLowerCase()}`}>
+                          <Button variant="ghost" size="sm" className="text-green-600 hover:text-green-700">
+                            Manage
+                          </Button>
+                        </Link>
                         <Button variant="ghost" size="sm" className="text-red-600 hover:text-red-700">
                           Delete
                         </Button>
